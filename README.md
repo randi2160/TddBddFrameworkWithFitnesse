@@ -1,59 +1,50 @@
-# TddBddFrameworkWithFitnesse
-I have created and setup Fitnesse Framework with Examples to get you up and running pretty quickly. I started this project 8 years ago and now have gotten a little time to update and to use as demo for others who are looking having their organization adopt automation.
+This project provides a setup for the FitNesse Framework with examples to help you get started quickly with test automation. Originally started 8 years ago, it's now updated as a demo for those looking to adopt automation in their organizations.
 
-Step-by-Step Guide: Cloning and Running the TddBddFrameworkWithFitnesse Project
+Getting Started
 1. Clone the Project
-First, you'll need to clone the project repository to your local machine. Here’s how you can do it:
+To get started, clone the project repository to your local machine:
 
-Open your terminal or command prompt.
-
-Navigate to the directory where you want to clone the repository.
-
-Run the following command:
-
+bash
+Copy code
 git clone https://github.com/randi2160/TddBddFrameworkWithFitnesse.git
-
-This will download the project files to your local machine.
-
 2. Install Visual Studio Community Edition
-To work with this project, you’ll need Visual Studio installed on your machine. Follow these steps:
+You'll need Visual Studio Community Edition to work with this project:
 
-Download Visual Studio Community Edition from here.
-Install Visual Studio, ensuring that you include the .NET desktop development and ASP.NET and web development workloads during installation.
+Download Visual Studio Community Edition.
+During installation, select the .NET desktop development and ASP.NET and web development workloads.
 3. Open the Project in Visual Studio
-Once you have Visual Studio installed:
-
-Open Visual Studio.
-Click on File > Open > Project/Solution.
+Launch Visual Studio.
+Go to File > Open > Project/Solution.
 Navigate to the directory where you cloned the project (TddBddFrameworkWithFitnesse).
-Select the .sln file (solution file) and click Open.
-Visual Studio will load the solution, allowing you to build and run the project.
-
+Select the .sln file and click Open.
 4. Build and Run the Project
-To build and run the project:
-
 Press Ctrl + Shift + B to build the solution.
-Ensure that the build is successful and there are no errors.
+Ensure the build is successful with no errors.
+5. Launch FitNesse
+Navigate to the project folder and execute the runfitnesse.bat file to start FitNesse.
 
+6. Configure FitNesse for Testing
+Here’s a sample configuration to set up FitNesse with your DLL and perform reflection:
 
-Go to the folder and execute runfitnesse.bat file to launch fitness
-
-here is a sample of the info you need to put in fitnesse to launch get your dll and perform reflection on it
-
+plaintext
+Copy code
 !|QaTip.Fitnesse.Demo.DoTestFixture|
 
 !define COMMAND_PATTERN {%m -r fitnesse.fitserver.FitServer,FitSharp\fit.dll,FitSharp\fitLibrary.dll -c FitSharp\suite.config.xml %p}
 !define TEST_RUNNER {Fitsharp\Runner.exe}
 !path ..\FitnesseFramework\Fixtures\Fitnesse_Dlls\QaTip.Fitnesse.Demo.dll
-!define TEST_RUNNER {Fitsharp\Runner.exe}
+FitNesse is capable of testing APIs, UI web services, databases, and more. If you can write the code, the possibilities are endless.
 
-!contents -R2 -g -p -f -h  
+Example: NavigateTo Method in DoTestFixture
+The NavigateTo method in the DoTestFixture class initializes a browser (if it hasn't been already) and returns a ManageNavigationFixture object, which is used to manage web navigation tasks in the test.
 
-We can test API, UI websrvice, database and anything that you need. If you can write code the skys the limit.
+csharp
+Copy code
+public ManageNavigationFixture NavigateTo()
+{
+    InitializeBrowser(); // Initialize browser if not already done
+    return new ManageNavigationFixture(selDriver);
+}
+This method ensures that the browser is only initialized when necessary and provides an interface to interact with the web page.
 
-Explanation of the Provided Code
-NavigateTo Method in DoTestFixture
-
-
-
-
+This version is more streamlined and user-friendly, providing clear instructions and explanations without unnecessary detail. It helps users quickly understand how to get started with the project and how the provided code works.
