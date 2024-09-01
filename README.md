@@ -1,50 +1,39 @@
-This project provides a setup for the FitNesse Framework with examples to help you get started quickly with test automation. Originally started 8 years ago, it's now updated as a demo for those looking to adopt automation in their organizations.
 
-Getting Started
-1. Clone the Project
-To get started, clone the project repository to your local machine:
+# AStep-by-Step Guide: Cloning and Running the TddBddFrameworkWithFitnesse Project
+## 1. Clone the Project
+First, you'll need to clone the project repository to your local machine. Here’s how you can do it:
+
+Open your terminal or command prompt.
+
+Navigate to the directory where you want to clone the repository.
+
+Run the following command:
 
 bash
-Copy code
+## Copy code
+---
 git clone https://github.com/randi2160/TddBddFrameworkWithFitnesse.git
-2. Install Visual Studio Community Edition
-You'll need Visual Studio Community Edition to work with this project:
+---
+This will download the project files to your local machine.
 
-Download Visual Studio Community Edition.
-During installation, select the .NET desktop development and ASP.NET and web development workloads.
+## 2. Install Visual Studio Community Edition
+To work with this project, you’ll need Visual Studio installed on your machine. Follow these steps:
+
+Download Visual Studio Community Edition from here.
+Install Visual Studio, ensuring that you include the .NET desktop development and ASP.NET and web development workloads during installation.
 3. Open the Project in Visual Studio
-Launch Visual Studio.
-Go to File > Open > Project/Solution.
+Once you have Visual Studio installed:
+
+## Open Visual Studio.
+Click on File > Open > Project/Solution.
 Navigate to the directory where you cloned the project (TddBddFrameworkWithFitnesse).
-Select the .sln file and click Open.
-4. Build and Run the Project
+Select the .sln file (solution file) and click Open.
+Visual Studio will load the solution, allowing you to build and run the project.
+
+## 4. Build and Run the Project
+To build and run the project:
+
 Press Ctrl + Shift + B to build the solution.
-Ensure the build is successful with no errors.
-5. Launch FitNesse
-Navigate to the project folder and execute the runfitnesse.bat file to start FitNesse.
+## Ensure that the build is successful and there are no errors.
 
-6. Configure FitNesse for Testing
-Here’s a sample configuration to set up FitNesse with your DLL and perform reflection:
-
-plaintext
-Copy code
-!|QaTip.Fitnesse.Demo.DoTestFixture|
-
-!define COMMAND_PATTERN {%m -r fitnesse.fitserver.FitServer,FitSharp\fit.dll,FitSharp\fitLibrary.dll -c FitSharp\suite.config.xml %p}
-!define TEST_RUNNER {Fitsharp\Runner.exe}
-!path ..\FitnesseFramework\Fixtures\Fitnesse_Dlls\QaTip.Fitnesse.Demo.dll
-FitNesse is capable of testing APIs, UI web services, databases, and more. If you can write the code, the possibilities are endless.
-
-Example: NavigateTo Method in DoTestFixture
-The NavigateTo method in the DoTestFixture class initializes a browser (if it hasn't been already) and returns a ManageNavigationFixture object, which is used to manage web navigation tasks in the test.
-
-csharp
-Copy code
-public ManageNavigationFixture NavigateTo()
-{
-    InitializeBrowser(); // Initialize browser if not already done
-    return new ManageNavigationFixture(selDriver);
-}
-This method ensures that the browser is only initialized when necessary and provides an interface to interact with the web page.
-
-This version is more streamlined and user-friendly, providing clear instructions and explanations without unnecessary detail. It helps users quickly understand how to get started with the project and how the provided code works.
+This is a class file so you will need to add the connection on the fitnesse page.
